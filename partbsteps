@@ -1,0 +1,39 @@
+PART-B 
+•	clickon pmos   --> Edit object(spect) change w=2.5 l=0.25
+After circuit
+•	File Export OK 
+Then select Tfile 3rd one from last
+EDITOR WINDOW
+
+•	1st Line 
+Goto editInsert command Analysis DC transfer sweep sweep 1
+sweep type linear     parameter typesource
+source namev1       range start 0       stop5   increment 0.1
+accept   insert command
+
+•	2nd Line
+Insert comm  analysisTranscient 
+max time step 10n        simulation length 100n       insert
+
+•	3rd Line
+Insert comm fileslibrary browse local drive D  Back up IMSVTU_legacyIMV Generic 25.lib
+library section tt     insert
+
+
+•	4th Line 
+insert comm  voltage sourcebit 
+voltage source namev1  postive terminalIN    dc value 5
+bit stream 1000111  		insert
+
+
+•	5th Line 
+insert comm  voltage source constant
+v source name v2       postive terminal vdd    	dc value5          insert
+•	6th line
+insert comm outputtranscient results
+input name IN   add     	Output nameOUT    add         	insert
+
+
+•	7th Line
+insert comoutput dc results
+nameOUT     add       insert    
